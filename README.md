@@ -49,13 +49,14 @@ This will:
     Generate and open an Allure report in your browser
 ```
 ### 🧾 4. Scripts
+
+Script	                 Description
 ```ts
-Script	Description
-npm test	Run all Playwright tests
-npm run clean:reports	Delete allure-results and allure-report folders
-npm run allure:generate	Generate HTML report from results
-npm run allure:open	Open the generated HTML report
-npm run test:allure	Full cycle: clean → test → report → open
+npm test	             Run all Playwright tests
+npm run clean:reports	 Delete allure-results and allure-report folders
+npm run allure:generate	 Generate HTML report from results
+npm run allure:open	     Open the generated HTML report
+npm run test:allure	     Full cycle: clean → test → report → open
 ```
 ### 🛠️ Configuration Highlights
 
