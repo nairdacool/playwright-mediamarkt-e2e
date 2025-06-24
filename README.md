@@ -7,7 +7,7 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 ---
 
 ## 📂 Project Structure
-```bash
+```ts
 ├── tests/ # Test specs
 │ └── example.spec.ts
 ├── tests-examples/ # Optional additional test suites
