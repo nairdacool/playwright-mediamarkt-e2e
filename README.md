@@ -25,19 +25,19 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 
 ### 📦 1. Install Dependencies
 
-```ts
+```bash
 npm install
 ```
 ### 🧪 2. Run Tests
 
-```ts
+```bash
 npm test
 # or
 npx playwright test
 ```
 
 ### 📊 3. Generate and Open Allure Report
-```bash
+```ts
 npm run test:allure
 
 This will:
