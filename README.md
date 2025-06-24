@@ -59,8 +59,8 @@ npm run test:allure	     Full cycle: clean → test → report → open
 ```
 ### 🛠️ Configuration Highlights
 
-playwright.config.ts
-```bash
+#### playwright.config.ts
+```ts
     Test timeout: 30 seconds
 
     Retry logic for CI
@@ -71,10 +71,10 @@ playwright.config.ts
 
     Traces, screenshots, and videos on failure
 ```
-.gitignore
+#### .gitignore
 
 Excludes:
-```bash
+```ts
     node_modules/
 
     Allure folders
@@ -84,7 +84,7 @@ Excludes:
     OS artifacts
 ```
 📸 Allure Report Features
-```bash
+```ts
     Full test history and statistics
 
     Screenshots and traces on failure
@@ -96,7 +96,7 @@ Excludes:
     Allure helps you visualize test behavior and issues.
 ```
 🧰 Tech Stack
-```bash
+```ts
     Playwright
 
     TypeScript
@@ -104,7 +104,7 @@ Excludes:
     Allure Reporter
 ```
 💡 Tips
-```bash
+```ts
     Add your own test files under the tests/ folder.
 
     Update baseURL in playwright.config.ts to point to your target app.
