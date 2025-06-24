@@ -37,7 +37,8 @@ Create a .env file in the root of the project:
 
 cp .env.example .env
 Add your environment variables to .env:
-
+```
+```bash
 BASE_URL=https://www.mediamarkt.es/es
 LOGIN_EMAIL=your@email.com
 LOGIN_PASSWORD=your-secure-password
