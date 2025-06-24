@@ -3,6 +3,7 @@ test-results/
 allure-report/
 allure-results/
 dist/
+.allure/
 
 # Allure report folders
 allure-results/
