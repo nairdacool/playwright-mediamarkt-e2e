@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './src/tests',
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -17,7 +17,9 @@ export default defineConfig({
     video: 'retain-on-failure',
     baseURL: 'https://yourapp.com',
     headless: false,
+    testIdAttribute: 'data-test',
   },
+  
   projects: [
     {
       name: 'Chromium',
