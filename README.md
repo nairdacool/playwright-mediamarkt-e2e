@@ -112,16 +112,8 @@ Excludes:
     Use test hooks (beforeEach, afterEach) to manage setup/teardown.
 ```
 ### 🧪 Sample Test
-<pre>
-```ts
-import { test, expect } from '@playwright/test';
+<pre> \```ts import { test, expect } from '@playwright/test'; test('basic page title check', async ({ page }) => { await page.goto('https://example.com'); await expect(page).toHaveTitle(/Example Domain/); }); \``` </pre>
 
-test('basic page title check', async ({ page }) => {
-  await page.goto('https://example.com');
-  await expect(page).toHaveTitle(/Example Domain/);
-});
-```
-<pre>
 ### 🛡️ License
 
 This project is licensed under the MIT License.
