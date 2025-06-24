@@ -7,7 +7,7 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 ---
 
 ## 📂 Project Structure
-
+```bash
 ├── tests/ # Test specs
 │ └── example.spec.ts
 ├── tests-examples/ # Optional additional test suites
@@ -17,7 +17,7 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 ├── package.json # Project metadata & scripts
 ├── tsconfig.json # TypeScript configuration
 └── README.md
-
+```
 
 ---
 
@@ -36,8 +36,8 @@ npm test
 npx playwright test
 ```
 
-3. Generate and Open Allure Report
-
+### 📊 3. Generate and Open Allure Report
+```bash
 npm run test:allure
 
 This will:
@@ -47,18 +47,20 @@ This will:
     Run all Playwright tests
 
     Generate and open an Allure report in your browser
-
-🧾 Scripts
+```
+### 🧾 4. Scripts
+```bash
 Script	Description
 npm test	Run all Playwright tests
 npm run clean:reports	Delete allure-results and allure-report folders
 npm run allure:generate	Generate HTML report from results
 npm run allure:open	Open the generated HTML report
 npm run test:allure	Full cycle: clean → test → report → open
+```
+### 🛠️ Configuration Highlights
 
-🛠️ Configuration Highlights
 playwright.config.ts
-
+```bash
     Test timeout: 30 seconds
 
     Retry logic for CI
@@ -68,11 +70,11 @@ playwright.config.ts
     Project runs in Chromium, Firefox, WebKit
 
     Traces, screenshots, and videos on failure
-
+```
 .gitignore
 
 Excludes:
-
+```bash
     node_modules/
 
     Allure folders
@@ -80,9 +82,9 @@ Excludes:
     VSCode settings
 
     OS artifacts
-
+```
 📸 Allure Report Features
-
+```bash
     Full test history and statistics
 
     Screenshots and traces on failure
@@ -92,32 +94,32 @@ Excludes:
     Easily debuggable failures
 
     Allure helps you visualize test behavior and issues.
-
+```
 🧰 Tech Stack
-
+```bash
     Playwright
 
     TypeScript
 
     Allure Reporter
-
+```
 💡 Tips
-
+```bash
     Add your own test files under the tests/ folder.
 
     Update baseURL in playwright.config.ts to point to your target app.
 
     Use test hooks (beforeEach, afterEach) to manage setup/teardown.
-
-🧪 Sample Test
-
+```
+### 🧪 Sample Test
+```bash
 import { test, expect } from '@playwright/test';
 
 test('basic page title check', async ({ page }) => {
   await page.goto('https://example.com');
   await expect(page).toHaveTitle(/Example Domain/);
 });
-
+```
 🛡️ License
 
 This project is licensed under the MIT License.
