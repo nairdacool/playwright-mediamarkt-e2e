@@ -1,7 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './src/tests',
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -15,9 +18,10 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    baseURL: 'https://yourapp.com',
-    headless: false,
+    headless: true,
+    testIdAttribute: 'data-test',
   },
+  
   projects: [
     {
       name: 'Chromium',
