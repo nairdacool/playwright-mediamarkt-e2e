@@ -25,12 +25,12 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 
 ### 📦 1. Install Dependencies
 
-```bash
+```ts
 npm install
 ```
 ### 🧪 2. Run Tests
 
-```bash
+```ts
 npm test
 # or
 npx playwright test
@@ -50,7 +50,7 @@ This will:
 ```
 ### 🧾 4. Scripts
 ```ts
-Script	                 Description
+Script	                     Description
 npm test	             Run all Playwright tests
 npm run clean:reports	     Delete allure-results and allure-report folders
 npm run allure:generate	     Generate HTML report from results
