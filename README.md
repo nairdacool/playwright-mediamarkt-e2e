@@ -28,7 +28,21 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 ```bash
 npm install
 ```
-### 🧪 2. Run Tests
+### 🔐 2. Environment Variables
+This project uses `dotenv` to manage environment-specific values such as credentials and base URLs.
+
+### ✅ Setup
+```ts
+Create a .env file in the root of the project:
+
+cp .env.example .env
+Add your environment variables to .env:
+
+BASE_URL=https://www.mediamarkt.es/es
+LOGIN_EMAIL=your@email.com
+LOGIN_PASSWORD=your-secure-password
+```
+### 🧪 3. Run Tests
 
 ```bash
 npm test
@@ -36,7 +50,7 @@ npm test
 npx playwright test
 ```
 
-### 📊 3. Generate and Open Allure Report
+### 📊 4. Generate and Open Allure Report
 ```ts
 npm run test:allure
 
@@ -48,7 +62,7 @@ This will:
 
     Generate and open an Allure report in your browser
 ```
-### 🧾 4. Scripts
+### 🧾 5. Scripts
 ```ts
 Script	                     Description
 npm test	             Run all Playwright tests
@@ -57,7 +71,7 @@ npm run allure:generate	     Generate HTML report from results
 npm run allure:open	     Open the generated HTML report
 npm run test:allure	     Full cycle: clean → test → report → open
 ```
-### 🛠️ Configuration Highlights
+### 🛠️ 6. Configuration Highlights
 
 #### playwright.config.ts
 ```ts
