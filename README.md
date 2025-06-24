@@ -112,7 +112,8 @@ Excludes:
     Use test hooks (beforeEach, afterEach) to manage setup/teardown.
 ```
 ### 🧪 Sample Test
-```bash
+<pre>
+```ts
 import { test, expect } from '@playwright/test';
 
 test('basic page title check', async ({ page }) => {
@@ -120,9 +121,10 @@ test('basic page title check', async ({ page }) => {
   await expect(page).toHaveTitle(/Example Domain/);
 });
 ```
-🛡️ License
+<pre>
+### 🛡️ License
 
 This project is licensed under the MIT License.
-🙋‍♂️ Contribution
+### 🙋‍♂️ Contribution
 
 Feel free to fork and contribute with PRs or issues!
