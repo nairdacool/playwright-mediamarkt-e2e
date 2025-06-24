@@ -1,0 +1,17 @@
+node_modules/
+test-results/
+allure-report/
+allure-results/
+dist/
+
+# Allure report folders
+allure-results/
+allure-report/
+
+# IDE / editor files
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
