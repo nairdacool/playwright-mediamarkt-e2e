@@ -5,7 +5,7 @@ import * as allure from "allure-js-commons";
 
 test.describe.parallel('Search Bar Tests', () => {
 
-    const baseUrl = process.env.BASE_URL || "https://default-url.com";
+    const baseUrl = process.env.BASE_URL ?? "https://default-url.com";
     const productName = 'Consola - Sony PS5 Slim Digital Edition, 1 TB SSD, 4K, 1 mando, Chasis D, Blanco';
 
     let searchBar: SearchBar;

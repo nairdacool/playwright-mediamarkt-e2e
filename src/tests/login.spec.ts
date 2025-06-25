@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LandingPage } from '../pages/LandingPage';
 import { LoginPage } from '../pages/LoginPage';
 import * as allure from "allure-js-commons";
@@ -7,9 +7,9 @@ import { ErrorMessages, SuccessMessages } from '../enums/AppMessages';
 
 test.describe.parallel('Login Page Tests', () => {
 
-    const baseUrl = process.env.BASE_URL ||  "https://default-url.com";
-    const username = process.env.LOGIN_EMAIL || 'defaultUser';
-    const password = process.env.LOGIN_PASSWORD || 'defaultPassword';
+    const baseUrl = process.env.BASE_URL ??  "https://default-url.com";
+    const username = process.env.LOGIN_EMAIL ?? 'defaultUser';
+    const password = process.env.LOGIN_PASSWORD?? 'defaultPassword';
 
     let loginPage: LoginPage;
     let landingPage: LandingPage;
@@ -19,12 +19,12 @@ test.describe.parallel('Login Page Tests', () => {
         landingPage = new LandingPage(page);
     })
 
-    test('should navigate to the MediaMarkt page', async ({}) => {
+    test('should navigate to the MediaMarkt page', async () => {
         allure.description('This test navigates to the MediaMarkt page');
         await landingPage.goTo(baseUrl);
     });
 
-    test('should open the login form and submit valid credentials', async ({}) => {
+    test('should open the login form and submit valid credentials', async () => {
         allure.description('This test opens the login form and submits valid credentials');
         await test.step('Navigate to MediaMarkt page', async () => {
             await landingPage.goTo(baseUrl);
@@ -40,7 +40,7 @@ test.describe.parallel('Login Page Tests', () => {
         });
     });
 
-    test('should open the login form and submit invalid credentials', async ({}) => {
+    test('should open the login form and submit invalid credentials', async () => {
         allure.description('This test opens the login form and submits invalid credentials');
         await test.step('Navigate to MediaMarkt page', async () => {
             await landingPage.goTo(baseUrl);
@@ -56,7 +56,7 @@ test.describe.parallel('Login Page Tests', () => {
         });
     });
 
-    test('should log out the user', async ({}) => {
+    test('should log out the user', async () => {
         allure.description('this test logs out the user');
         await test.step('Navigate to MediaMarkt page', async () => {
             await landingPage.goTo(baseUrl);
