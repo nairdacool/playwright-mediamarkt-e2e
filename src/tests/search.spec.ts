@@ -41,6 +41,19 @@ test.describe.parallel('Search Bar Tests', () => {
         });
         await test.step('validate no results message', async () => {
             await searchBar.validateNonExistingProductMessage(ErrorMessages.NO_SEARCH_RESULTS)
-        })
+        });
+    });
+
+    test('should clear search input', async () => {
+        allure.description('this test clears the search input after searching for a product');
+        await test.step('navigate to the Mediamarkt page', async () => {
+            await landingPage.goTo(baseUrl);
+        });
+        await test.step('search for a product', async () => {
+            await searchBar.seachForProduct(productName);
+        });
+        await test.step('clear search input', async () => {
+            await searchBar.clearSearchInput(productName);
+        });
     });
 });
