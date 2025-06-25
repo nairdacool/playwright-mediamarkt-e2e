@@ -17,18 +17,11 @@ test.describe.parallel('Login Page Tests', () => {
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
         landingPage = new LandingPage(page);
-    })
-
-    test('should navigate to the MediaMarkt page', async () => {
-        allure.description('This test navigates to the MediaMarkt page');
         await landingPage.goTo(baseUrl);
-    });
+    })
 
     test('should open the login form and submit valid credentials', async () => {
         allure.description('This test opens the login form and submits valid credentials');
-        await test.step('Navigate to MediaMarkt page', async () => {
-            await landingPage.goTo(baseUrl);
-        });
         await test.step('Open login form', async () => {
             await loginPage.openLoginForm();
         });
@@ -42,9 +35,6 @@ test.describe.parallel('Login Page Tests', () => {
 
     test('should open the login form and submit invalid credentials', async () => {
         allure.description('This test opens the login form and submits invalid credentials');
-        await test.step('Navigate to MediaMarkt page', async () => {
-            await landingPage.goTo(baseUrl);
-        });
         await test.step('Open login form', async () => {
             await loginPage.openLoginForm();
         });
@@ -58,9 +48,6 @@ test.describe.parallel('Login Page Tests', () => {
 
     test('should log out the user', async () => {
         allure.description('this test logs out the user');
-        await test.step('Navigate to MediaMarkt page', async () => {
-            await landingPage.goTo(baseUrl);
-        });
         await test.step('Open login form and submit valid credentials', async () => {
             await loginPage.openLoginForm();
             await loginPage.submitLoginForm(username, password);

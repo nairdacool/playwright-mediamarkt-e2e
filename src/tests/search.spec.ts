@@ -16,13 +16,11 @@ test.describe.parallel('Search Bar Tests', () => {
     test.beforeEach(async ({ page })=> {
         searchBar = new SearchBar(page);
         landingPage = new LandingPage(page);
+        await landingPage.goTo(baseUrl);
     });
 
     test('should search for a product', async ()=> {
         allure.description('This test searches for a product using the search bar');
-        await test.step('Navigate to the Mediamarkt page', async () => {
-            await landingPage.goTo(baseUrl);
-        });
         await test.step('Search for a product', async () => {
             await searchBar.seachForProduct(productName);
         });
@@ -33,9 +31,6 @@ test.describe.parallel('Search Bar Tests', () => {
 
     test('should display no results message for non-existing product', async ()=> {
         allure.description('This test checks the no results message for a non-existing product');
-        await test.step('navigate to the Mediamarkt page', async () => {
-            await landingPage.goTo(baseUrl);
-        });
         await test.step('search for a non-existing product', async () => {
             await searchBar.seachForProduct(nonExistingProdct);
         });
@@ -46,9 +41,6 @@ test.describe.parallel('Search Bar Tests', () => {
 
     test('should clear search input', async () => {
         allure.description('this test clears the search input after searching for a product');
-        await test.step('navigate to the Mediamarkt page', async () => {
-            await landingPage.goTo(baseUrl);
-        });
         await test.step('search for a product', async () => {
             await searchBar.seachForProduct(productName);
         });

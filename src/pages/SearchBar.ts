@@ -7,6 +7,7 @@ export class SearchBar {
     private readonly searchResults: Locator;
     private readonly noResultsMessage: Locator;
     private readonly clearSeachButton: Locator;
+    private readonly selectFirstCardResult: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -14,6 +15,7 @@ export class SearchBar {
         this.searchResults = page.getByTestId('mms-search-srp-productlist');
         this.noResultsMessage = page.getByTestId('mms-search-main');
         this.clearSeachButton = page.locator('.sc-a72f22b3-0.iQxZdB');
+        this.selectFirstCardResult = page.getByTestId('mms-router-link-product-list-item-link').first();
     };
     
     async seachForProduct(productName: string): Promise<void>{
@@ -34,5 +36,9 @@ export class SearchBar {
     async clearSearchInput(expectedProductName: string): Promise<void> {
         await this.clearSeachButton.click();
         await expect(this.searchInput).not.toHaveValue(expectedProductName);
+    };
+
+    async selectFirstProductResult(): Promise<void> {
+        await this.selectFirstCardResult.click();
     }
 };
