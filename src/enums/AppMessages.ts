@@ -5,4 +5,9 @@ export enum ErrorMessages {
 
 export enum SuccessMessages {
     LOGGED_OUT = 'Has cerrado sesión correctamente.',
+    PRODUCT_SUCCESSFULLY_ADDED = 'Su producto fue añadido con éxito al carrito',
+}
+
+export enum WarningMessages {
+    PRODUCTS_IN_CART = 'Los productos de la cesta de la compra no están reservados',
 }
