@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,22 +18,44 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    headless: true,
     testIdAttribute: 'data-test',
   },
-  
+
   projects: [
     {
       name: 'Chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        browserName: 'chromium',
+        headless: false, 
+        viewport: null, // disables Playwright resizing to preserve --start-maximized
+        launchOptions: {
+          args: ['--start-maximized'],
+        },
+      },
     },
+
     // {
     //   name: 'Firefox',
-    //   use: { ...devices['Desktop Firefox'] },
+    //   use: {
+    //     browserName: 'firefox',
+    //     headless: false,
+    //     viewport: null,
+    //     launchOptions: {
+    //       args: ['--start-maximized'],
+    //     },
+    //   },
     // },
+
     // {
     //   name: 'WebKit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   use: {
+    //     browserName: 'webkit',
+    //     headless: false,
+    //     viewport: null,
+    //     launchOptions: {
+    //       args: ['--start-maximized'],
+    //     },
+    //   },
     // },
   ],
 });
