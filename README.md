@@ -8,13 +8,18 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 
 ## 📂 Project Structure
 ```plaintext
-├── tests/               # Test specs
-├── tests-examples/      # Optional additional test suites
+├── src/                 # Source folder containing core project files
+│   ├── Enums/           # Enums used across the project
+│   ├── pages/           # Page Object Models (POMs)
+│   ├── tests/           # Test specs
+│   ├── Utils/           # Utility functions and helpers
 ├── allure-results/      # Raw test result files (ignored by Git)
 ├── allure-report/       # Generated Allure HTML report (ignored by Git)
+├── node_modules/        # Installed dependencies (ignored by Git)
 ├── playwright.config.ts # Playwright configuration
 ├── package.json         # Project metadata & scripts
 ├── tsconfig.json        # TypeScript configuration
+├── .gitignore           # Git ignore rules
 └── README.md            # Project documentation
 ```
 
