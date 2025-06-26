@@ -3,7 +3,9 @@ import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import { SearchBar } from '../pages/SearchBar';
 import { LandingPage } from '../pages/LandingPage';
 import { CartPage } from '../pages/CartPage';
+import { CheckOutPage } from '../pages/CheckoutPage';
 import { SuccessMessages, WarningMessages } from '../enums/AppMessages';
+import { CustomerDetails, ShippingDetails } from '../enums/CustomerData';
 import * as allure from "allure-js-commons";
 
 
@@ -16,16 +18,18 @@ test.describe.parallel('Shoping Cart Tests', () => {
     let searchBar: SearchBar;
     let landingPage: LandingPage;
     let cartPage: CartPage;
+    let checkOutPage: CheckOutPage;
 
     test.beforeEach(async ({ page }) => {
         productDetailsPage = new ProductDetailsPage(page);
         searchBar = new SearchBar(page);
         landingPage = new LandingPage(page);
         cartPage = new CartPage(page);
+        checkOutPage = new CheckOutPage(page);
         await landingPage.goTo(baseUrl);
     });
 
-    test('should add a product to the cart', async () => {
+    test('should add a product to the cart and checkout it', async () => {
         allure.description('This test adds a product to the shopping cart');
         await test.step('search for a product', async () => {
             await searchBar.seachForProduct(productName);
@@ -50,6 +54,57 @@ test.describe.parallel('Shoping Cart Tests', () => {
         });
         await test.step('verify the cart contains the added product', async () => {
             await cartPage.verifyCartContainsProduct(productName);
+        });
+        await test.step('click on the checkout button', async () => {
+            await cartPage.clickCheckoutButton();
+        });
+        await test.step('continue to checkout as a guest', async () => {
+            await checkOutPage.clickGuestCheckoutButton();
+        });
+        await test.step('fill customer details', async () => {
+            await checkOutPage.fillCustomerDetails(
+                CustomerDetails.FIRST_NAME,
+                CustomerDetails.LAST_NAME,
+                CustomerDetails.TAX_ID,
+                CustomerDetails.PHONE_NUMBER,
+                CustomerDetails.EMAIL
+            );
+        });
+        await test.step('add shipping address manually', async () => {
+            await checkOutPage.addShippingAddressManually(
+                ShippingDetails.ZIP_CODE,
+                ShippingDetails.CITY,
+                ShippingDetails.STREET,
+                ShippingDetails.HOUSE_NUMBER,
+                ShippingDetails.ADDITIONAL_INFORMATION
+            )
+        });
+        await test.step('click on the continue button to proceed with checkout', async () => {
+            await checkOutPage.clickCheckoutContinueButton();
+        });
+        await test.step('confirm the address in the modal (If required)', async () => {
+            await checkOutPage.confirmAddress(ShippingDetails.ADDITIONAL_INFORMATION);
+        });
+        await test.step('click on the continue to payment button', async () => {
+            await checkOutPage.clickContinueToPaymentButton(WarningMessages.PAYMENT_METHOD);
+        });
+        await test.step('click on the continue to summary button', async () => {
+            await checkOutPage.clickContinueToSummaryButton();
+        });
+        await test.step('validate the summary delivery details', async () => {
+            await checkOutPage.validateSummaryDeliveryDetails(
+                CustomerDetails.FIRST_NAME,
+                CustomerDetails.LAST_NAME,
+                ShippingDetails.ADDITIONAL_INFORMATION,
+            );
+        });
+        await test.step('validate the summary product details', async () => {
+            await checkOutPage.validateSummaryProductDetails(productName);
+        });
+        await test.step('click the consent checkbox and proceed to do the payment', async () => {
+            await checkOutPage.clickConsentCheckbox();
+            await checkOutPage.clickGoToDoThePaymentButton();
+            await checkOutPage.validatePaymentFormVisible(WarningMessages.PAYMENT_FORM_TITTLE);
         });
     });
 });

@@ -10,4 +10,6 @@ export enum SuccessMessages {
 
 export enum WarningMessages {
     PRODUCTS_IN_CART = 'Los productos de la cesta de la compra no están reservados',
+    PAYMENT_METHOD = 'Seleccionar la opción de pago',
+    PAYMENT_FORM_TITTLE = 'Introduce ahora la información para realizar el pago.',
 }
