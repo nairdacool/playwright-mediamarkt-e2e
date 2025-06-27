@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "playwright/test";
 
-export class SearchBar {
+export class Search {
 
     private readonly page: Page;
     private readonly searchInput: Locator;
@@ -8,6 +8,8 @@ export class SearchBar {
     private readonly noResultsMessage: Locator;
     private readonly clearSeachButton: Locator;
     private readonly selectFirstCardResult: Locator;
+    private readonly searchAddToWishlistButton: Locator;
+    private readonly wishlistNotification: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -16,6 +18,8 @@ export class SearchBar {
         this.noResultsMessage = page.getByTestId('mms-search-main');
         this.clearSeachButton = page.locator('.sc-a72f22b3-0.iQxZdB');
         this.selectFirstCardResult = page.getByTestId('mms-router-link-product-list-item-link').first();
+        this.searchAddToWishlistButton = page.getByTestId('mms-search-wishlist-unselected').first();
+        this.wishlistNotification = page.getByTestId('mms-search-wishlist-notification');
     };
     
     async seachForProduct(productName: string): Promise<void>{
@@ -40,5 +44,15 @@ export class SearchBar {
 
     async selectFirstProductResult(): Promise<void> {
         await this.selectFirstCardResult.click();
+    };
+
+    async clickAddTowishlistButton(): Promise<void> {
+        await this.searchAddToWishlistButton.waitFor({ state: 'visible' });
+        await this.searchAddToWishlistButton.click();
+    };
+    
+    async validatewishlitNotificationMessage(expectedMessage: string): Promise<void> {
+        await expect(this.wishlistNotification).toBeVisible();
+        await expect(this.wishlistNotification).toContainText(expectedMessage);
     }
 };

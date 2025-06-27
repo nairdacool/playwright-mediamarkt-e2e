@@ -27,7 +27,7 @@ export default defineConfig({
       use: {
         browserName: 'chromium',
         headless: true, 
-        //viewport: null, // disables Playwright resizing to preserve --start-maximized
+        viewport: null, // disables Playwright resizing to preserve --start-maximized
         launchOptions: {
           args: ['--start-maximized'],
         },

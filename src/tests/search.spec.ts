@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { SearchBar } from '../pages/SearchBar';
+import { Search } from '../pages/Search';
 import { LandingPage } from '../pages/LandingPage';
 import * as allure from "allure-js-commons";
 import { ErrorMessages } from '../enums/AppMessages';
@@ -10,11 +10,11 @@ test.describe.parallel('Search Bar Tests', () => {
     const productName = 'Consola - Sony PS5 Slim Digital Edition, 1 TB SSD, 4K, 1 mando, Chasis D, Blanco';
     const nonExistingProdct = 'NonExistingProduct123';
 
-    let searchBar: SearchBar;
+    let searchBar: Search;
     let landingPage: LandingPage;
 
     test.beforeEach(async ({ page })=> {
-        searchBar = new SearchBar(page);
+        searchBar = new Search(page);
         landingPage = new LandingPage(page);
         await landingPage.goTo(baseUrl);
     });

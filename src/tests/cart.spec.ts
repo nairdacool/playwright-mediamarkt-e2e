@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { ProductDetailsPage } from '../pages/ProductDetailsPage';
-import { SearchBar } from '../pages/SearchBar';
+import { Search } from '../pages/Search';
 import { LandingPage } from '../pages/LandingPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckOutPage } from '../pages/CheckoutPage';
@@ -15,14 +15,14 @@ test.describe.parallel('Shoping Cart Tests', () => {
     const productName = 'Consola - Sony PS5 Slim Digital Edition, 1 TB SSD, 4K, 1 mando, Chasis D, Blanco';
 
     let productDetailsPage: ProductDetailsPage;
-    let searchBar: SearchBar;
+    let searchBar: Search;
     let landingPage: LandingPage;
     let cartPage: CartPage;
     let checkOutPage: CheckOutPage;
 
     test.beforeEach(async ({ page }) => {
         productDetailsPage = new ProductDetailsPage(page);
-        searchBar = new SearchBar(page);
+        searchBar = new Search(page);
         landingPage = new LandingPage(page);
         cartPage = new CartPage(page);
         checkOutPage = new CheckOutPage(page);
