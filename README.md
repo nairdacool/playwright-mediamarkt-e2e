@@ -40,10 +40,10 @@ node -v
 npm -v
 ```
 If both commands return version numbers, you're good to go! Otherwise, follow these steps:
-🧰 Install Node.js using Homebrew (macOS):
-
     Open Terminal (found in Applications > Utilities).
     Install Homebrew (if not already installed):
+    
+🧰 Install Node.js using Homebrew (macOS):
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
