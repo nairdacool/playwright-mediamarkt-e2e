@@ -10,6 +10,7 @@ export class Search {
     private readonly selectFirstCardResult: Locator;
     private readonly searchAddToWishlistButton: Locator;
     private readonly wishlistNotification: Locator;
+    private readonly closeWishlistNotificationButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -20,6 +21,8 @@ export class Search {
         this.selectFirstCardResult = page.getByTestId('mms-router-link-product-list-item-link').first();
         this.searchAddToWishlistButton = page.getByTestId('mms-search-wishlist-unselected').first();
         this.wishlistNotification = page.getByTestId('mms-search-wishlist-notification');
+        this.closeWishlistNotificationButton = page.locator('.sc-905ed05d-1.gNVtWd.sc-cdd30252-3.keqgcz');
+
     };
     
     async seachForProduct(productName: string): Promise<void>{
@@ -54,5 +57,6 @@ export class Search {
     async validatewishlitNotificationMessage(expectedMessage: string): Promise<void> {
         await expect(this.wishlistNotification).toBeVisible();
         await expect(this.wishlistNotification).toContainText(expectedMessage);
+        await this.closeWishlistNotificationButton.click();
     }
 };

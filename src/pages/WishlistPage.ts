@@ -7,6 +7,7 @@ export class WishlistPage {
     private readonly deleteProductFromWishListActionsMenu: Locator;
     private readonly snackbarMessage: Locator;
     private readonly emptyWishlistMessage: Locator;
+    private readonly humanVerification: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -15,6 +16,7 @@ export class WishlistPage {
         this.deleteProductFromWishListActionsMenu = page.locator('.sc-b350c14-0.lcGtCn').nth(1);
         this.snackbarMessage = page.getByTestId('snackbar');
         this.emptyWishlistMessage = page.getByTestId('myacc-page-empty-wishlist');
+        this.humanVerification = page.locator('#myaccount-turnstile-captcha');
     };
 
     async validateWishlistTittle(ExpectedTittle: string): Promise<void>{
@@ -23,6 +25,8 @@ export class WishlistPage {
     };
 
     async openWishlistActionsMenu(): Promise<void> {
+        //await this.humanVerification.waitFor({ state: 'visible' });
+        await expect(this.wishlistActionsMenu).toBeVisible();
         await this.wishlistActionsMenu.click();
     };
 
