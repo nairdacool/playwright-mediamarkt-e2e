@@ -29,10 +29,10 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 
 ### 📦 1. Install Dependencies
 
-a. Install Node.js and npm
+### a. Install Node.js and npm
 
 Before installing dependencies, ensure that Node.js and npm are installed on your system.
-✅ Check if Node.js and npm are already installed:
+#### ✅ Check if Node.js and npm are already installed:
 
 Open your terminal and run:
 ```bash
