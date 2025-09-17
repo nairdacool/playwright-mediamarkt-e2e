@@ -4,7 +4,7 @@ export class LoginPage {
 
     private readonly page: Page;
     private readonly myAccountButton: Locator;
-    private readonly cookiesConcentButton: Locator;
+    
     private readonly loginInButton: Locator;
     private readonly emailInput: Locator;
     private readonly paswordInput: Locator;
@@ -17,7 +17,7 @@ export class LoginPage {
     constructor(page: Page) {
         this.page = page;
         this.myAccountButton = page.getByTestId('myaccount-dropdown-button');
-        this.cookiesConcentButton = page.getByTestId('pwa-consent-layer-accept-all');
+        
         this.loginInButton = page.getByTestId('mms-router-link-myaccount-dropdown-login-button');
         this.emailInput = page.getByTestId('email__input');
         this.paswordInput = page.getByTestId('password__input');
@@ -28,13 +28,7 @@ export class LoginPage {
         this.LogOutMessage = page.getByTestId('snackbar');
     }
 
-    async goTo (baseURL: string): Promise<void> {
-        await this.page.goto(baseURL);
-        await expect(this.page).toHaveURL(baseURL);
-    };
-
     async openLoginForm (): Promise<void> {
-        await this.cookiesConcentButton.click();
         await this.myAccountButton.click();
         await this.loginInButton.click();
         await expect(this.emailInput).toBeVisible();
