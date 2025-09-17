@@ -28,10 +28,49 @@ This repository contains a complete setup for **end-to-end (E2E) automated testi
 ## 🚀 Getting Started
 
 ### 📦 1. Install Dependencies
-Install the required dependencies using:
 
+a. Install Node.js and npm
+
+Before installing dependencies, ensure that Node.js and npm are installed on your system.
+✅ Check if Node.js and npm are already installed:
+
+Open your terminal and run:
+```bash
+node -v
+npm -v
+```
+If both commands return version numbers, you're good to go! Otherwise, follow these steps:
+🧰 Install Node.js using Homebrew (macOS):
+
+    Open Terminal (found in Applications > Utilities).
+    Install Homebrew (if not already installed):
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+   Install Node.js via Homebrew:
+   ```bash
+   brew install node
+   ```
+   Verify installation:
+   ```bash
+   node -v
+   npm -v
+   ```
+
+b. Install Project Dependencies
+
+Once Node.js and npm are installed, navigate to your project directory and run:
 ```bash
 npm install
+npx playwright install
+```
+This will install all required packages and set up Playwright for browser automation.
+
+c. Install Dotenv for Credential Management
+
+To securely manage environment variables (like credentials), install dotenv:
+```bash
+npm install dotenv
 ```
 
 ---
