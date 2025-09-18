@@ -47,7 +47,7 @@ export class CheckOutPage {
         this.shippingAdditionalInformation = page.getByTestId('shipping_additionalInfo');
         this.checkoutContinueButton = page.getByTestId('checkout-continue-desktop-enabled').nth(1);
         this.addAddressManuallyButton = page.getByTestId('add-address-manually');
-        this.confirmAddressButton = page.locator('.sc-905ed05d-1.frvGGl.sc-ee1c7543-1.gnpuAl');
+        this.confirmAddressButton = page.locator('.sc-836914d0-1.fHRxoY.sc-ee1c7543-1.gnpuAl');
         this.confirmAddressModal = page.locator('#mms-styled-modal-inner-wrapper');
         this.deliveryMethodTitle = page.getByTestId('step-wrapper-title');
         this.deliveryAddress = page.locator('.sc-b350c14-0.LIcee');
@@ -55,10 +55,10 @@ export class CheckOutPage {
         this.selectPaymentMethod = page.getByTestId('step-wrapper-description');
         this.continueToSummaryButton = page.getByTestId('checkout-continue-desktop-enabled').nth(1);
         this.summaryDeliveryCard = page.getByTestId('summary-card-delivery');
-        this.summaryProductCard = page.locator('.sc-b350c14-0.hUmqMa');
+        this.summaryProductCard = page.locator('.sc-637a2157-0.kPVeTa');
         this.consentCheckbox = page.getByTestId('icon-test-id');
         this.goToDoThePaymentButton = page.getByTestId('checkout-continue-button').nth(1);
-        this.paymentFormTittle = page.locator('.formScreen');
+        this.paymentFormTittle = page.locator('.creditcard-container');
     };
 
     async clickGuestCheckoutButton(): Promise<void> {

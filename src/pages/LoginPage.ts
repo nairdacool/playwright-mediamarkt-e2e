@@ -13,24 +13,26 @@ export class LoginPage {
     private readonly invalidCredentialsError: Locator;
     private readonly logOutButton: Locator;
     private readonly LogOutMessage: Locator;
+    private readonly closeMiAccountMenuButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.myAccountButton = page.getByTestId('myaccount-dropdown-button');
         
         this.loginInButton = page.getByTestId('mms-router-link-myaccount-dropdown-login-button');
-        this.emailInput = page.getByTestId('email__input');
+        this.emailInput = page.getByTestId('userName__input');
         this.paswordInput = page.getByTestId('password__input');
-        this.submitLoginButton = page.locator('#mms-login-form__login-button');
-        this.userAccountName = page.locator('.sc-e5aec254-0.hisqcf');
+        this.submitLoginButton = page.locator('#mms-drawer-login__login-button');
+        this.userAccountName = page.locator('.sc-2ab4e761-0.mmAVT');
         this.invalidCredentialsError = page.getByTestId('validationMessage');
-        this.logOutButton = page.locator('.sc-905ed05d-1.krtLUI.sc-dcb06c26-2.iiofcE');
+        this.logOutButton = page.locator('.sc-836914d0-1.gXOjSA.sc-dcb06c26-2.iiofcE');
         this.LogOutMessage = page.getByTestId('snackbar');
+        this.closeMiAccountMenuButton = page.getByTestId('modal-close-button');
     }
 
     async openLoginForm (): Promise<void> {
         await this.myAccountButton.click();
-        await this.loginInButton.click();
+        //await this.loginInButton.click();
         await expect(this.emailInput).toBeVisible();
     };
 
@@ -59,4 +61,8 @@ export class LoginPage {
         await expect(this.LogOutMessage).toBeVisible();
         await expect(this.LogOutMessage).toContainText(logOutMessage);
     };
+
+    async closeMyAccountMenu(): Promise<void> {
+        await this.closeMiAccountMenuButton.click();
+    }
 };

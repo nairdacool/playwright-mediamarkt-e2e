@@ -11,9 +11,9 @@ export class WishlistPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.wishlistHeader = page.locator('.sc-a06385e1-0.sLtXc').first();
+        this.wishlistHeader = page.locator('.sc-4a318613-0.cEzViG').first();
         this.wishlistActionsMenu = page.getByTestId('wishlist-product-card-flyout-menu').first();
-        this.deleteProductFromWishListActionsMenu = page.locator('.sc-b350c14-0.lcGtCn').nth(1);
+        this.deleteProductFromWishListActionsMenu = page.locator('.sc-94eb08bc-0.cIXvrS').nth(6);
         this.snackbarMessage = page.getByTestId('snackbar');
         this.emptyWishlistMessage = page.getByTestId('myacc-page-empty-wishlist');
         this.humanVerification = page.locator('#myaccount-turnstile-captcha');

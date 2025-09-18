@@ -34,6 +34,10 @@ test.describe.parallel('Wishlist Tests', () => {
             await loginPage.openLoginForm();
             await loginPage.submitLoginForm(username, password);
         });
+        await test.step('validate successful login', async () => {
+            await loginPage.validateUserLoggedIn('Gustavo Adrian Trujillo');
+            await loginPage.closeMyAccountMenu();
+        });
         await test.step('Search for a product', async () => {
             await searchBar.seachForProduct(productName);
         });

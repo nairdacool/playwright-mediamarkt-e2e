@@ -12,7 +12,7 @@ export class CartPage {
     constructor(page: Page) {
         this.page = page;
         this.cartTitle = page.getByTestId('step-wrapper-title');
-        this.productsInCartWarn = page.locator("//div[@class='sc-d571b66f-0 dXsqkK']");
+        this.productsInCartWarn = page.locator('.sc-4a318613-0.cQMElu').nth(1);
         this.sellBasket = page.getByTestId('mms-seller-basket');
         this.cartCheckoutButton = page.getByTestId('checkout-continue-desktop-enabled');
 

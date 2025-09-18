@@ -5,7 +5,7 @@ export enum ErrorMessages {
 
 export enum SuccessMessages {
     LOGGED_OUT = 'Has cerrado sesión correctamente.',
-    PRODUCT_SUCCESSFULLY_ADDED = 'Su producto fue añadido con éxito al carrito',
+    PRODUCT_SUCCESSFULLY_ADDED = 'Tu producto fue añadido con éxito al carrito',
     ADDED_SUCCESSFULLY_TO_WISHLIST = 'Añadido con éxito a tu lista de favoritos! Encontrarás tu lista de favoritos en Mi cuenta.',
     PRODUCT_REMOVED_FROM_WISHLIST = 'El elemento se ha eliminado correctamente.',
 }
@@ -13,7 +13,7 @@ export enum SuccessMessages {
 export enum WarningMessages {
     PRODUCTS_IN_CART = 'Los productos de la cesta de la compra no están reservados',
     PAYMENT_METHOD = 'Seleccionar la opción de pago',
-    PAYMENT_FORM_TITTLE = 'Introduce ahora la información para realizar el pago.',
+    PAYMENT_FORM_TITTLE = ' Ingrese los datos de su tarjeta:',
     WISHLIST_TITTLE = 'Aquí tienes tus productos favoritos, ¡cómpralos ahora!',
     EMPTY_WISHLIST = 'Tu lista de favoritos todavía está vacía',
 }

@@ -9,10 +9,10 @@ export default defineConfig({
   expect: {
     timeout: 5000,
   },
-  fullyParallel: true,
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   reporter: [['list'], ['allure-playwright']],
   use: {
     trace: 'on-first-retry',
@@ -27,7 +27,7 @@ export default defineConfig({
       use: {
         browserName: 'chromium',
         headless: false, 
-        //viewport: null, // disables Playwright resizing to preserve --start-maximized
+        viewport: null, // disables Playwright resizing to preserve --start-maximized
         launchOptions: {
           args: ['--start-maximized'],
         },
